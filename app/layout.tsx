@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://next-learn-dashboard.vercel.sh'),
 };
 
+export const dynamic = 'force-dynamic'; // pnpm run build 回避用
+
 export default function RootLayout({
   children,
 }: {
