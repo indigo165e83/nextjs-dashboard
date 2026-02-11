@@ -1,17 +1,32 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "@tailwindcss/forms";
 
+@theme {
+  /* カスタムカラーの定義 (bg-blue-400 などで使えるようになります) */
+  --color-blue-400: #2589FE;
+  --color-blue-500: #0070F3;
+  --color-blue-600: #2F6FEB;
+
+  /* グリッドレイアウトの定義 (grid-cols-13 で使えるようになります) */
+  --grid-template-columns-13: repeat(13, minmax(0, 1fr));
+
+  /* アニメーションの定義 (animate-shimmer で使えるようになります) */
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  --animate-shimmer: shimmer 2s infinite linear;
+}
+
+/* ブラウザ標準の数値入力フォームのスタイルリセット（矢印を消すなど） */
+/* Tailwind v4 では標準的な CSS として記述すれば適用されます */
 input[type='number'] {
   -moz-appearance: textfield;
   appearance: textfield;
 }
 
-input[type='number']::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
+input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
